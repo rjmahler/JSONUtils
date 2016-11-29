@@ -49,20 +49,23 @@ public class JsonUtilsTest extends TestCase
 			br = new BufferedReader(new FileReader("jsontest2.txt"));
 			JsonNode rootNode = objMapper.readValue(br,  JsonNode.class);
 			br.close();
-			
+			System.out.println("=========================================================");
+			System.out.println("Original:" + rootNode);
 			br = new BufferedReader(new FileReader("personalinfo-phone.txt"));
 			JsonNode phoneNode = objMapper.readValue(br, JsonNode.class);
 			br.close();
 			assertTrue(JsonUtils.findAndReplace(rootNode, "serverInsert", phoneNode));
 			assertNotNull(JsonUtils.getFullPath(rootNode, "", "subItem1Itemphone"));
-				
+			System.out.println("=========================================================");
+			System.out.println("After phone insert:" + rootNode);
 			br = new BufferedReader(new FileReader("personalinfo-ssn.txt"));
 			JsonNode ssnNode = objMapper.readValue(br, JsonNode.class);
 			br.close();
 			assertTrue(JsonUtils.findAndReplace(rootNode, "serverInsert", ssnNode));
 			assertNotNull(JsonUtils.getFullPath(rootNode, "", "subItem1Itemssn"));
 			assertNull(JsonUtils.getFullPath(rootNode, "", "serverInsert"));
-			System.out.println(rootNode);
+			System.out.println("=========================================================");
+			System.out.println("After ssn insert:" + rootNode);
 
 		} catch (Exception e) {
 			e.printStackTrace();
