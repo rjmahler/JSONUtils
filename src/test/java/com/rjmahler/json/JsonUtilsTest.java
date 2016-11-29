@@ -43,8 +43,9 @@ public class JsonUtilsTest extends TestCase
 			}
 		}
 	}
-    public void testFindAndReplace() {
-    	BufferedReader br = null;
+	
+    	public void testFindAndReplace() {
+		BufferedReader br = null;
 		try {
 			br = new BufferedReader(new FileReader("jsontest2.txt"));
 			JsonNode rootNode = objMapper.readValue(br,  JsonNode.class);
