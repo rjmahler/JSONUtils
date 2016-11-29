@@ -65,7 +65,7 @@ public class JsonUtils {
 	}
 	
 	/**
-	 * Replaces JSON data for a specific element in a JSON tree.
+	 * Replaces JSON data for the specified element. This only replaces the first occurrence.
 	 * 
 	 * @param rootNode - JSON tree
 	 * @param element - element to replace
